@@ -572,10 +572,10 @@ AI가 매 턴 전개 속도를 스스로 점검하면서 감정선과 사건을 
     const items=LINKS.filter(l=>l.cat===cat.id);
     if(!items.length)return;
     const sec=document.createElement('section');
-    sec.className='acc'+(idx===0?' open':'');
+    sec.className='acc';
     sec.innerHTML=`<button class="acc-head" type="button"><span class="cat-ico">${esc(cat.icon)}</span><span class="cat-name">${esc(cat.label)}</span><span class="cat-count"></span>${chevC}</button><div class="acc-body"><div class="acc-inner"><ul></ul></div></div>`;
     const ul=sec.querySelector('ul'), countPill=sec.querySelector('.cat-count');
-    sec.userOpen=idx===0;
+    sec.userOpen=false;
     sec.querySelector('.acc-head').addEventListener('click',()=>{ if(searching)return; sec.userOpen=!sec.userOpen; sec.classList.toggle('open',sec.userOpen); });
 
     const itemRefs=items.map(l=>{
